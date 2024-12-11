@@ -3,10 +3,12 @@ import { mdiArrowLeft, mdiArrowRight } from '@mdi/js'
 import * as cookie from 'cookie'
 import { computed, ref } from 'vue'
 
-const text = ref('')
+const text = ref(
+  'session_id=abc123xyz; Path=/; Domain=example.com; Expires=Wed, 15 Jan 2025 12:00:00 GMT; Max-Age=2592000; HttpOnly; Secure; SameSite=Strict',
+)
 const selectedKeys = ref<string[]>([])
 const cookieRows = ref<{ key: string; value: string | undefined }[]>([])
-
+copyToRight()
 const rows = computed(() => {
   return cookieRows.value
     .map((row) => ({
